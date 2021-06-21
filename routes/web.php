@@ -15,13 +15,17 @@ use Spatie\Activitylog\Models\Activity;
 */
 Route::get('/', function () {
     // on user create, update, and delete need to log the Activity.
-    $User = new \App\Http\Controllers\UserController();
-    $User->create($data);
-    $User->destroy($User);
-    $User->update();
-    $Activity = Activity::all()->last();
-    return $Activity->name;
-    return $Activity->email;
+//    $User = new \App\Http\Controllers\UserController();
+//    $User->create($data);
+//    $User->destroy($User);
+//    $User->update();
+//    $Activity = Activity::all()->last();
+//    return $Activity->name;
+//    return $Activity->email;
     return view('welcome');
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
